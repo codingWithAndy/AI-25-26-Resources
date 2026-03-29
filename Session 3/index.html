@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rule-Based AI Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .app-box {
+            border: 1px solid #cccccc;
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 16px;
+            cursor: pointer;
+        }
+
+        .response {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f4f4f4;
+            border-left: 4px solid #444;
+        }
+
+        .hint {
+            font-size: 0.95rem;
+            color: #555;
+        }
+
+        code {
+            background: #f0f0f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app-box">
+        <h1>Rule-Based AI Demo</h1>
+        <p class="hint">
+            Ask a simple question such as <code>hello</code>, <code>deadline</code>, or <code>bye</code>.
+        </p>
+
+        <form method="POST">
+            <label for="message"><strong>Your message</strong></label>
+            <input
+                type="text"
+                id="message"
+                name="message"
+                placeholder="Type your message here"
+                value="{{ user_message }}"
+            >
+            <button type="submit">Send</button>
+        </form>
+
+        {% if response %}
+        <div class="response">
+            <p><strong>AI response:</strong></p>
+            <p>{{ response }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
